@@ -1,0 +1,153 @@
+/* Globales Box-Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.project-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-page-wrapper {
+  max-width: 1200px;
+  padding: 0 10px;
+  margin: auto;
+}
+
+.project-page-heading {
+  margin-bottom: 30px;
+}
+
+.project-page-hero {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-bottom: 50px;
+}
+
+.project-page h1 {
+  margin: 40px 0 20px 0;
+}
+
+.project-page-hero-col1,
+.project-page-hero-col2 {
+  flex: 1 1 50%;
+  padding: 10px;
+}
+
+.project-page-logos {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.project-page-logos img {
+  max-height: 50px;
+  margin: 20px 20px 20px 0;
+}
+
+.project-page-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-page-showcase img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+
+.showcase-col1,
+.showcase-col2 {
+  flex: 1 1 calc(50% - 10px);
+}
+
+#showcase-heading {
+  margin: 70px 0;
+  text-align: center;
+}
+
+.project-page-breadcrumbs-light,
+.project-page-breadcrumbs-dark {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  font-family: "Roboto Mono", monospace;
+  margin-left: 15px;
+}
+
+.project-page-breadcrumbs-light::before,
+.project-page-breadcrumbs-dark::before {
+  content: "←";
+  position: absolute;
+  left: -20px;
+  top: 0;
+  /color: currentColor;
+}
+
+.project-page-breadcrumbs-light:hover,
+.project-page-breadcrumbs-dark:hover {
+  color: #ccc;
+}
+
+.project-page-breadcrumbs-light:hover::before,
+.project-page-breadcrumbs-dark:hover::before {
+  content: "↖";
+}
+
+.clickable-image {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.clickable-image:hover {
+  transform: scale(1.05);
+}
+
+/* Passe die Hintergrundfarbe an */
+.ril__outer {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Passe die Pfeile an */
+.ril__navButtonNext,
+.ril__navButtonPrev {
+  background-color: transparent;
+}
+
+@media screen and (max-width: 750px) {
+  .showcase-col1,
+  .showcase-col2 {
+    flex: 1 1 100%;
+  }
+
+  .project-page-heading h1 {
+    font-size: 2rem;
+    margin-left: 10px;
+  }
+
+  .project-page-hero h2 {
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .project-page-hero {
+    flex-direction: column;
+  }
+
+  .project-page-hero-col1,
+  .project-page-hero-col2 {
+    flex: 1 1 100%;
+    padding: 10px;
+  }
+
+  .project-page-heading h1 {
+    font-size: 1.5rem;
+  }
+}

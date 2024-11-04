@@ -1,0 +1,34 @@
+.privacy {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.privacy-content {
+  max-width: 1200px;
+  padding: 0px 20px;
+  margin: auto;
+}
+
+.privacy-content a {
+  color: #95f31d;
+  padding: 10px;
+  margin: 10px;
+}
+
+@media screen and (max-width: 750px) {
+  .privacy-content h1,
+  .privacy-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .privacy-content h1,
+  .privacy-content h2,
+  .privacy-content h3 {
+    font-size: 1.4rem;
+  }
+}

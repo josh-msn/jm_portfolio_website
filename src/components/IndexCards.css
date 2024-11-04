@@ -1,0 +1,82 @@
+.index-cards {
+}
+
+.green-divider {
+  background-color: #c0f37e;
+  width: 100vw;
+  min-height: 90px;
+  display: flex;
+  justify-content: center;
+
+  background-repeat: no-repeat;
+  background-size: 100% 90px;
+}
+
+.green-divider-light {
+  background-image: url("../assets/images/green-divider-light.png");
+}
+.green-divider-dark {
+  background-image: url("../assets/images/green-divider-dark.png");
+}
+
+.index-buttons-wrap {
+  max-width: 1200px;
+  width: 100%;
+  align-content: flex-start;
+  display: flex;
+  align-self: flex-end;
+  padding-left: 10px;
+}
+
+.index-buttons {
+  max-height: 65px;
+  height: 9vh;
+  margin: 0px 10px 0px 0px;
+  padding: 20px 40px 10px 40px;
+  border-radius: 15px 15px 0px 0px;
+  border: solid 0px;
+  font-size: 1.5rem;
+}
+
+.index-buttons-light {
+  background-color: #ebebeb;
+  color: black;
+}
+
+.index-buttons-dark {
+  background-color: #131313;
+  color: white;
+}
+
+.active-index-buttons-light {
+  background-color: #ffffff;
+  color: black;
+}
+
+.active-index-buttons-dark {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.index-buttons-wrap button:hover {
+  box-shadow: 0px 0px 0px #c0f37e;
+}
+
+@media (max-width: 800px) {
+  .green-divider {
+    background-image: none;
+  }
+}
+
+@media (max-width: 570px) {
+  .index-buttons-wrap {
+  }
+
+  .index-buttons {
+    max-width: 200px;
+    min-width: 80px;
+    width: 25%;
+    font-size: 1.2rem;
+    padding: 5px 5px 5px 5px;
+  }
+}

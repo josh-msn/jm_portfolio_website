@@ -1,0 +1,48 @@
+.logos-techstack {
+  display: flex;
+  align-items: center;
+}
+
+.icon-container {
+  position: relative;
+  margin: 10px 0px;
+  max-height: 40px;
+  cursor: pointer;
+}
+
+.icon-container img {
+  max-height: 40px;
+  transition: transform 0.2s;
+}
+
+.icon-container:hover img {
+  transform: scale(1.1);
+}
+
+.icon-container .icon-text {
+  position: absolute;
+  bottom: -50px; /* Anpassung je nach Bedarf */
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 18px;
+  color: white; /* Weißer Text */
+  background-color: #1f1f1f; /* Grauer Hintergrund */
+  border: 2px solid #95f31d; /* Grüner Rand */
+  padding: 5px 10px; /* Padding für besseren Abstand */
+  border-radius: 4px; /* Abgerundete Ecken */
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 10; /* Höherer z-index */
+}
+
+.icon-container:hover .icon-text,
+.icon-container.active .icon-text {
+  opacity: 1;
+}
+
+@media (max-width: 790px) {
+  .icon-container img {
+    max-height: 30px;
+  }
+}

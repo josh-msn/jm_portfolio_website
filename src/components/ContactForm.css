@@ -1,0 +1,95 @@
+.contact-form {
+  max-width: 500px;
+  min-height: 300px;
+  border-radius: 5px;
+  padding: 5px;
+  width: 50vw;
+}
+
+.contact-card-body {
+}
+
+.message-sent {
+  color: #ffffff;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  max-width: calc(100% - 20px);
+  width: calc(100% - 20px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px auto;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.math-challenge {
+  margin: 10px 0;
+}
+
+.math-challenge input[type="number"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+}
+
+.contact-form input[type="submit"] {
+  background-color: #c0f37e;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #95f31d;
+  transform: scale(1.05);
+}
+
+.contact-form button[type="submit"] {
+  background-color: #c0f37e;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: #95f31d;
+  transform: scale(1.05);
+}
+
+.message-sent {
+  max-width: 500px;
+  min-height: 300px;
+  border-radius: 5px;
+  padding: 20px;
+  width: 50vw;
+  background-color: #c0f37e;
+  color: black;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+@media (max-width: 550px) {
+  .contact-form {
+    width: 100%;
+  }
+}

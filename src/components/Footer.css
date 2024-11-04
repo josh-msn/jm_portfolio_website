@@ -1,0 +1,50 @@
+.footer {
+  background-color: #131313;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding: 10px 0px;
+  width: 100vw;
+  min-height: 100px;
+  max-width: 100%;
+}
+
+.footer p {
+  margin: 5px;
+}
+
+.footer li {
+  list-style: none;
+  margin: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer ul {
+  display: flex;
+
+  color: white;
+  flex-wrap: wrap;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.centered-list {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}

@@ -1,0 +1,94 @@
+/* Light/Dark Switch */
+
+/* Neuer Container für Switch und Ninja */
+.switch-container {
+  position: relative; /* Ermöglicht absolute Positionierung der Kinder */
+  display: flex; /* Flex-Layout verwenden */
+  justify-content: flex-end; /* Inhalte nach rechts ausrichten */
+  align-items: center; /* Vertikal zentrieren */
+  width: 100%; /* Volle Breite einnehmen */
+}
+
+/* Angepasster Switch */
+.switch {
+  display: flex;
+  justify-content: center; /* Zentriert den Switch innerhalb des Containers */
+  align-items: center;
+  /* Entferne width: 100%; */
+}
+
+/* Angepasste Ninja Positionierung */
+.ninja {
+  position: absolute;
+  top: -60px; /* Positioniere den Ninja über dem Switch */
+
+  transform: translateX(-50%); /* Korrigiere die Zentrierung */
+  z-index: 1;
+  pointer-events: none; /* Verhindert, dass der Ninja Klicks abfängt */
+}
+
+/* Mode Switch Styles */
+.mode-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+}
+
+.mode-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #c0f37e; /* Default background color for sun */
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 15px; /* Adjusted border-radius */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input:checked + .mode-slider {
+  background-color: #131313; /* Background color for moon */
+}
+
+input:focus + .mode-slider {
+  box-shadow: 0 0 0px #95f31d;
+}
+
+input:checked + .mode-slider:before {
+  -webkit-transform: translateX(30px);
+  -ms-transform: translateX(30px);
+  transform: translateX(30px);
+}
+
+/* Rounded sliders */
+.mode-slider.round {
+  border-radius: 30px;
+}
+
+.sun-icon,
+.moon-icon {
+  color: #000000; /* Default color for sun */
+}
+
+.moon-icon {
+  color: #ffffff; /* Color for moon */
+  left: 5px;
+  display: none;
+}
+
+input:checked + .mode-slider .sun-icon {
+  display: none;
+}
+
+input:checked + .mode-slider .moon-icon {
+  display: block;
+}
+
+.switch input {
+  display: none;
+}

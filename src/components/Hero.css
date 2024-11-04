@@ -1,0 +1,78 @@
+.greenbeam {
+  background-color: #95f31d;
+  height: 8px;
+  width: 100vw;
+  margin: 0px;
+}
+
+.hero {
+  padding: 30px 20px;
+}
+
+.contentwrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.hero-2-column-layout {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  margin-top: 20px;
+}
+
+.hero-first-column {
+  max-width: 60%;
+}
+
+.hero-first-column .logos-techstack {
+  margin-bottom: 20px;
+}
+
+.hero-first-column p {
+  margin: 10px 0px;
+}
+
+.hero-second-column {
+  max-width: 40%;
+}
+
+.hero-first-column h2 {
+  font-size: 1.5rem;
+}
+
+.hero-second-column img {
+  max-width: 350px;
+  border-radius: 20px;
+}
+
+.hero-first-column img {
+  margin: 0px 8px;
+}
+
+@media (max-width: 790px) {
+  .hero-first-column {
+    max-width: 100%;
+  }
+
+  .hero-first-column h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-second-column {
+    max-width: 100%;
+    padding-right: 10px;
+  }
+
+  .hero-first-column h2 {
+    text-align: left;
+  }
+
+  .hero-second-column img {
+    max-width: 100%;
+    border-radius: 20px;
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,66 @@
+.header {
+  width: 100%;
+  background-color: #c0f37e;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1200px; /* Maximale Breite von 550px für das Widget */
+  display: flex;
+  align-items: center; /* Elemente zentriert vertikal ausrichten */
+  padding-right: 20px;
+}
+
+#header-portrait {
+  border-radius: 20px;
+  border: solid 2px #c0f37e;
+  box-shadow: 0px 0px 10px #242424;
+  margin-right: 20px;
+  max-height: 60px;
+}
+
+.header .mode-slider {
+  background-color: #ffffff;
+}
+
+.header .contact-widget p {
+  font-size: 0.9rem;
+}
+
+.header .contact-widget-column1 {
+  width: 60%;
+  min-width: 250px;
+}
+.header .contact-widget-column2 {
+  width: 40%;
+  min-width: 200px;
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .header .contact-widget-column2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .header .contact-widget-column1 {
+    display: none;
+  }
+  .header .contact-widget {
+    margin: 0px;
+  }
+
+  .header .contact-widget button {
+    width: 100%;
+    box-shadow: 0px 0px 10px #242424;
+    border-radius: 20px;
+    font-weight: 700;
+    min-height: 60px;
+    min-width: none;
+  }
+}

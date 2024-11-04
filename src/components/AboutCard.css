@@ -1,0 +1,250 @@
+/* Allgemeine Stile */
+.about-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-card-columns {
+  display: flex;
+  flex-direction: row;
+  margin: 80px 20px 30px 20px;
+  max-width: 1200px;
+  border: solid 4px #c0f37e;
+  border-radius: 20px;
+}
+
+.about-card-column1 {
+  width: 70%;
+}
+
+.about-card-column2 {
+  width: 30%;
+}
+
+.about-card-skills h3 {
+  margin-top: 20px;
+}
+
+.about-card-title1 {
+  background-color: #c0f37e;
+  color: black;
+  border-radius: 15px 0px 0px 0px;
+  padding: 10px;
+}
+
+.about-card-title2 {
+  background-color: #c0f37e;
+  color: black;
+  border-radius: 0px 15px 0px 0px;
+  padding: 10px;
+}
+
+.about-card-text {
+  padding: 10px;
+}
+
+.about-card-experience {
+  padding: 10px;
+  border-left: solid 4px #c0f37e;
+  border-bottom: solid 4px #c0f37e;
+  border-radius: 0px 0px 0px 20px;
+}
+
+/* Neue Skills-Styles */
+.skills-container {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  width: 100%;
+  max-width: 1200px;
+  border: solid 4px #c0f37e;
+  border-radius: 20px;
+  margin: 30px 20px;
+}
+
+.skills-column {
+  width: 45%;
+}
+
+h2 {
+  margin-top: 20px;
+  /*color: black;*/
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+h3 {
+  margin-top: 20px;
+  /* color: white;*/
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skill-name {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.skill-name img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.progress-bar {
+  background-color: #3a3a3a;
+  border-radius: 5px;
+  width: 70%;
+  height: 10px;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+}
+
+/* Skill Farben und Breiten */
+.html-skill {
+  background-color: #f06529;
+}
+
+.css-skill {
+  background-color: #2965f1;
+}
+
+.js-skill {
+  background-color: #f0db4f;
+}
+
+.react-skill {
+  background-color: #61dafb;
+}
+
+.python-skill {
+  background-color: #306998;
+}
+
+.sql-skill {
+  background-color: #f29111;
+}
+
+.wordpress-skill {
+  background-color: #4caf50;
+}
+
+.shopify-skill {
+  background-color: #4caf50;
+}
+
+.figma-skill {
+  background-color: #4caf50;
+}
+
+.photoshop-skill {
+  background-color: #4caf50;
+}
+
+.premiere-skill {
+  background-color: #4caf50;
+}
+
+.seo-skill {
+  background-color: #4caf50;
+}
+
+/* @keyframes für das Füllen der Balken */
+@keyframes fill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
+/* Initialer Zustand der Progress-Bars */
+.progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  width: 0; /* Start bei 0 */
+  transition: width 2s ease-in-out;
+}
+
+/* Animationsklasse hinzufügen */
+.progress-bar.animate span {
+  animation: fill 2s forwards;
+}
+
+/* Media Queries für responsive Design */
+@media (max-width: 768px) {
+  .about-card-columns {
+    flex-direction: column;
+  }
+
+  .about-card-column1,
+  .about-card-column2 {
+    width: 100%;
+  }
+
+  .about-card-title1 {
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  .about-card-title2 {
+    background-color: #c0f37e;
+    color: black;
+    border-radius: 0px 0px 0px 0px;
+  }
+
+  .about-card-experience {
+    border-left: solid 0px;
+    border-bottom: solid 0px;
+  }
+  .skills-column {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .skills-container {
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 60px);
+    padding: 10px;
+  }
+
+  .skill {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .progress-bar {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  .skills-column {
+    width: 70%;
+    margin-right: 10px;
+  }
+}

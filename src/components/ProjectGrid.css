@@ -1,0 +1,138 @@
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch; /* Change this line */
+  align-content: flex-start; /* Füge diese Zeile hinzu */
+  padding: 30px 30px;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+  min-height: 50vh;
+  width: 100%;
+}
+
+.project-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.filter {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 45px 0px 10px 10px;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  max-height: 50px;
+}
+
+.shuffle-button {
+  border: solid 1px #95f31d;
+  border-radius: 10px;
+  margin: 5px 5px;
+  padding: 10px;
+  background-color: transparent;
+  color: black;
+  font-weight: 600;
+}
+
+.filter-button {
+  border: solid 1px #95f31d;
+  border-radius: 10px;
+  margin: 5px 5px;
+  padding: 10px;
+}
+
+.filter-button-light {
+  background-color: #ffffff;
+}
+
+.filter-button-dark {
+  background-color: #1f1f1f !important;
+  color: white;
+}
+
+.active-filter-button-light {
+  border: solid 1px #95f31d;
+  border-radius: 10px;
+  margin: 5px 5px;
+  padding: 10px;
+  color: black;
+  background-color: #95f31d;
+}
+
+.active-filter-button-dark {
+  border: solid 1px #95f31d;
+  border-radius: 10px;
+  margin: 5px 5px;
+  padding: 10px;
+  color: black;
+  background-color: #95f31d !important;
+}
+
+.filter-button:hover {
+  cursor: pointer;
+}
+
+.project-card:hover {
+  box-shadow: 0px 0px 10px #95f31d;
+  border-color: transparent;
+  transform: scale(1.01);
+  cursor: pointer;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination-button {
+  border: solid 1px #95f31d;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 8px 12px;
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.active-page {
+  background-color: #95f31d;
+  color: black;
+}
+
+/* Adjust for light and dark modes if necessary */
+.pagination-button-light {
+}
+
+.pagination-button-dark {
+}
+
+@media (max-width: 550px) {
+  .project-grid {
+    justify-content: center;
+    width: fit-content;
+  }
+  .filter {
+    max-height: 100%;
+    width: 300px;
+  }
+  .filter-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .project-container {
+  }
+}
