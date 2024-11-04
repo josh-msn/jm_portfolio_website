@@ -1,0 +1,637 @@
+
+<style>
+  .ertragsrechner-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 1rem;
+  }
+
+
+
+  #ertragsrechner-columnzwei {
+      margin: 40px 20px 20px 20px;
+  }
+ 
+  input[type="number"] {
+      width: 220px;
+      padding: 10px;
+      font-size: 18px;
+      margin: 0 0 20px 0;
+      box-sizing: border-box;
+      border: 2px solid #7a7a7a;
+      border-radius: 4px;
+      background-color: #f7f7f7;
+      color: #2f2f2f;
+  }
+
+  .ertragsrechner::placeholder {
+      color: #2f2f2f !important;
+  }
+
+  #ertragsrechner-berechnenBtn {
+      background-color: #74db49;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 220px;
+      font-size: 18px;
+      margin: 10px 0px 30px 0px;
+  }
+
+  #ertragsrechner-berechnenBtn:hover {
+      background-color: #4bcc4f;
+      transform: scale(1.05);
+      transition: ease-in-out 0.1s;
+  }
+
+  .ertragsrechner-custom-select {
+      position: relative;
+      font-family: Arial;
+      font-size: 16px;
+      border: 2px solid #7a7a7a;
+      border-radius: 5px;
+  }
+
+  .ertragsrechner-custom-select select {
+      display: none;
+  }
+
+  .ertragsrechner-select-selected {
+      background-color: #f7f7f7;
+  }
+
+  .ertragsrechner-select-selected:after {
+      position: absolute;
+      content: "";
+      top: 14px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-color: #fff transparent transparent transparent;
+  }
+
+  .ertragsrechner-select-selected.ertragsrechner-select-arrow-active:after {
+      border-color: transparent transparent #fff transparent;
+      top: 7px;
+  }
+
+  .ertragsrechner-select-items div,
+  .ertragsrechner-select-selected {
+      color: #000000;
+      padding: 8px 16px;
+      border: 1px solid transparent;
+      border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+
+  .ertragsrechner-select-items {
+      position: absolute;
+      background-color: #f7f7f7;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      border-radius: 5px;
+      height: 240px;
+      overflow-y: auto;
+  }
+
+  .ertragsrechner-select-hide {
+      display: none;
+  }
+
+  .ertragsrechner-select-items div:hover,
+  .ertragsrechner-same-as-selected {
+      background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .ertragsrechner-headings {
+      font-size: 20px;
+      margin: 20px 0 0px 0px;
+      color: #dfd9cd;
+  }
+
+  .ertragsrechner h1, h2 {
+      color: #dfd9cd;
+  }
+
+  #ertragsrechner-ausgabe ul {
+      margin: 0px 5px 20px -40px;
+      list-style-type: none;
+      float: left;
+      line-height: 25px;
+      font-size: 16px;
+      font-weight: 500;
+  }
+
+  #ertragsrechner-ausgabe ul li {
+      display: inline-block;
+      border: solid 1px;
+      border-color: #7a7a7a;
+      margin: 2px 1px 2px 1px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+width:200px;
+      min-height: 50px;
+  }
+
+  #ertragsrechner-ausgabe ul li span {
+      text-decoration: none;
+  }
+
+  #ertragsrechner-ausgabe span {
+      display: inline-block;
+  }
+
+  .ertragsrechner-disclaimer p {
+      font-size: 12px;
+      max-width: 450px;
+      margin-bottom: 50px;
+      color: #dfd9cd;
+  }
+
+  @media screen and (max-width: 520px) {
+      .ertragsrechner-row {
+          display: block;
+      }
+
+      #ertragsrechner-columnzwei {
+          margin: 40px 5px 20px 5px;
+      }
+
+      #ertragsrechner-ausgabe ul li {
+          width: calc(100%-2-px);
+      }
+  }
+</style>
+
+</head>
+<body>
+  <div class="ertragsrechner-body">
+    <div class="ertragsrechner-row">
+      <div class="ertragsrechner-column">
+        <div class="ertragsrechner-calculator">
+          <div class="ertragsrechner-headings">
+            <p>Wähle dein Gemüse, Kräuter oder Obst:</p>
+          </div>
+          <div class="ertragsrechner-custom-select" style="width:200px;">
+            <select id="gemuese">
+              <option value="kartoffel">Kartoffel</option>
+              <option value="tomate">Tomate</option>
+              <option value="gurke">Salatgurke</option>
+              <option value="aubergine">Aubergine</option>
+              <option value="lauch">Lauch</option>
+              <option value="kohlrabi">Kohlrabi</option>
+              <option value="blumenkohl">Blumenkohl</option>
+              <option value="moehre">Möhre</option>
+              <option value="paprika">Paprika</option>
+              <option value="feldsalat">Feldsalat</option>
+              <option value="zucchini">Zucchini</option>
+              <option value="kopfsalat">Kopfsalat</option>
+              <option value="hokkaido_kuerbis">Hokkaido Kürbis</option>
+              <option value="spinat">Spinat</option>
+              <option value="brokkoli">Brokkoli</option>
+              <option value="stangenbohne">Stangenbohne</option>
+              <option value="zwiebel">Zwiebel</option>
+              <option value="knoblauch">Knoblauch</option>
+              <option value="radieschen">Radieschen</option>
+              <option value="snackpaprika">Snackpaprika</option>
+              <option value="mangold">Mangold</option>
+            </select>
+          </div>
+          <div class="ertragsrechner-headings">
+            <p>Gib die Anbaufläche in m² und deine Ausgaben in € ein:</p>
+          </div>
+          <div class="ertragsrechner-inputs">
+            <input type="number" id="flaeche" min="0" step="0.25" placeholder="Anbaufläche">
+            <input type="number" id="kosten" min="0" step="1" placeholder="Kosten (optional)">
+          </div>
+          <button id="ertragsrechner-berechnenBtn">Berechnen</button>
+          <div class="ertragsrechner-headings" id="ergebnis">
+            <h2>Ergebnisse anhand deiner Eingaben</h2>
+          </div>
+          <div id="ertragsrechner-ausgabe">
+            <ul>
+              <li>Ertrag pro Jahr<br> <span id="ertrag"></span> kg</li>
+              <li>Ernten pro Jahr<br> <span id="ernten_jahr"></span></li>
+              <li>Ersparnis pro Jahr<br> <span id="ersparnis"></span> €</li>
+              <li>Amortisierungsdauer<br><span id="amortisierung"></span> Jahre</li>
+              <li>CO₂-Ersparnis pro Jahr<br><span id="co2"></span> kg</li>
+              <li>Eigenbedarf<br><span id="selbstversorgung"></span> m²</li>
+              <li>Wasserbedarf<br><span id="wasserbedarf"></span></li>
+              <li>Düngerbedarf<br><span id="duenger"></span></li>
+              <li>Kulturzeitraum<br><span id="kulturdauer"></span></li>
+              <li>Anbaumöglichkeiten<br><span id="ort"></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+<script>
+var x, i, j, l, ll, selElmnt, a, b, c;
+
+x = document.getElementsByClassName("ertragsrechner-custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+    selElmnt = x[i].getElementsByTagName("select")[0];
+    ll = selElmnt.length;
+
+    a = document.createElement("DIV");
+    a.setAttribute("class", "ertragsrechner-select-selected");
+    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+    x[i].appendChild(a);
+
+    b = document.createElement("DIV");
+    b.setAttribute("class", "ertragsrechner-select-items ertragsrechner-select-hide");
+    for (j = 1; j < ll; j++) {
+    
+        c = document.createElement("DIV");
+        c.innerHTML = selElmnt.options[j].innerHTML;
+        c.addEventListener("click", function (e) {
+
+            var y, i, k, s, h, sl, yl;
+            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+            sl = s.length;
+            h = this.parentNode.previousSibling;
+            for (i = 0; i < sl; i++) {
+                if (s.options[i].innerHTML == this.innerHTML) {
+                    s.selectedIndex = i;
+                    h.innerHTML = this.innerHTML;
+                    y = this.parentNode.getElementsByClassName("ertragsrechner-same-as-selected");
+                    yl = y.length;
+                    for (k = 0; k < yl; k++) {
+                        y[k].removeAttribute("class");
+                    }
+                    this.setAttribute("class", "ertragsrechner-same-as-selected");
+                    break;
+                }
+            }
+            h.click();
+        });
+        b.appendChild(c);
+    }
+    x[i].appendChild(b);
+    a.addEventListener("click", function (e) {
+
+        e.stopPropagation();
+        closeAllSelect(this);
+        this.nextSibling.classList.toggle("ertragsrechner-select-hide");
+        this.classList.toggle("ertragsrechner-select-arrow-active");
+    });
+}
+
+function closeAllSelect(elmnt) {
+
+    var x, y, i, xl, yl, arrNo = [];
+    x = document.getElementsByClassName("ertragsrechner-select-items");
+    y = document.getElementsByClassName("ertragsrechner-select-selected");
+    xl = x.length;
+    yl = y.length;
+    for (i = 0; i < yl; i++) {
+        if (elmnt == y[i]) {
+            arrNo.push(i)
+        } else {
+            y[i].classList.remove("ertragsrechner-select-arrow-active");
+        }
+    }
+    for (i = 0; i < xl; i++) {
+        if (arrNo.indexOf(i)) {
+            x[i].classList.add("ertragsrechner-select-hide");
+        }
+    }
+}
+
+document.addEventListener("click", closeAllSelect);
+
+document.getElementById("ertrag").innerHTML = "---";
+document.getElementById("ernten_jahr").innerHTML = "---";
+document.getElementById("ersparnis").innerHTML = "---";
+document.getElementById("amortisierung").innerHTML = "---";
+document.getElementById("co2").innerHTML = "---";
+document.getElementById("selbstversorgung").innerHTML = "---";
+document.getElementById("wasserbedarf").innerHTML = "---";
+document.getElementById("duenger").innerHTML = "---";
+document.getElementById("kulturdauer").innerHTML = "---";
+document.getElementById("ort").innerHTML = "---";
+
+
+
+document.getElementById("ertragsrechner-berechnenBtn").addEventListener("click", berechne);
+
+
+function berechne() {
+    // Ausgewähltes Gemüse und zugehörige Parameter
+    var gemuese = document.getElementById("gemuese").value;
+    var parameter = {
+            kartoffel: {
+                ertrag: 3,
+                ernten: 1,
+                preis: 2.15,
+                co2: 0.2,
+                bedarf: 55,
+                anzahl: 4,
+                wasserbedarf: "niedrig",
+                duenger: "hoch",
+                kulturdauer: "Apr-Okt",
+                ort: "Balkon/Terasse, Freiland"
+            },
+            
+            tomate: {
+                ertrag: 6,
+                ernten: 1,
+                preis: 4.4,
+                co2: 9.3,
+                bedarf: 21,
+                anzahl: 2,
+                wasserbedarf: "mittel",
+                duenger: "hoch",
+                kulturdauer: "März-Okt/Nov",
+                ort: "Gewächshaus, Balkon/Terasse"
+            },
+            
+            salatgurke: {
+                ertrag: 9,
+                ernten: 1,
+                preis: 2,
+                co2: 7,
+                bedarf: 9,
+                anzahl: 2,
+                wasserbedarf: "mittel",
+                duenger: "hoch",
+                kulturdauer: "Apr-Okt",
+                ort: "Gewächshaus, Balkon/Terasse, Freiland"
+            },
+            
+            aubergine: {
+                ertrag: 2.5,
+                ernten: 1,
+                preis: 4,
+                co2: 2.1,
+                bedarf: 1,
+                anzahl: 3,
+                wasserbedarf: "mittel",
+                duenger: "hoch",
+                kulturdauer: "Jan/Feb-Okt",
+                ort: "Gewächshaus"
+            },
+            
+            lauch: {
+                ertrag: 2,
+                ernten: 2,
+                preis: 33,
+                co2: 0.6,
+                bedarf: 1.5,
+                anzahl: 12,
+                wasserbedarf: "mittel",
+                duenger: "mittel",
+                kulturdauer: "Feb-Dez",
+                ort: "Freiland"
+            },
+            
+            kohlrabi: {
+                ertrag: 2.5,
+                ernten: 3,
+                preis: 6.4,
+                co2: 0.5,
+                bedarf: 2.1,
+                anzahl: 25,
+                wasserbedarf: "mittel",
+                duenger: "mittel",
+                kulturdauer: "März-Okt",
+                ort: "Im Frühjahr Gewächshaus, Freiland"
+            },
+            
+            blumenkohl: {
+                ertrag: 2,
+                ernten: 2,
+                preis: 7,
+                co2: 0.8,
+                bedarf: 2.7,
+                anzahl: 5,
+                wasserbedarf: "hoch",
+                duenger: "hoch",
+                kulturdauer: "Ganzjährig (je nach Sorte)",
+                ort: "Im Frühjahr Gewächshaus, Freiland"
+            },
+            
+            moehre: {
+                ertrag: 2.5,
+                ernten: 3,
+                preis: 2,
+                co2: 0.2,
+                bedarf: 7.5,
+                anzahl: 80,
+                wasserbedarf: "niedrig",
+                duenger: "mittel",
+                kulturdauer: "Apr-Jan",
+                ort: "Balkon/Terasse, Freiland"
+            },
+            
+            paprika: {
+                ertrag: 3,
+                ernten: 1,
+                preis: 15,
+                co2: 1.8,
+                bedarf: 3.9,
+                anzahl: 5,
+                wasserbedarf: "mittel",
+                duenger: "hoch",
+                kulturdauer: "Feb-Okt (kann überwintert werden)",
+                ort: "Gewächshaus, Balkon/Terasse, Freiland"
+            },
+            
+            feldsalat: {
+                ertrag: 1,
+                ernten: 2,
+                preis: 20,
+                co2: 0.4,
+                bedarf: 0.7,
+                anzahl: 50,
+                wasserbedarf: "niedrig",
+                duenger: "niedrig",
+                kulturdauer: "Okt-März",
+                ort: "Gewächshaus, Balkon/Terasse, Freiland"
+            },
+            
+            zucchini: {
+                ertrag: 3,
+                ernten: 1,
+                preis: 5,
+                co2: 0.7,
+                bedarf: 3.3,
+                anzahl: 2,
+                wasserbedarf: "mittel",
+                duenger: "mittel",
+                kulturdauer: "Apr-Sept",
+                ort: "Freiland"
+            },
+            
+            kopfsalat: {
+                ertrag: 1.5,
+                ernten: 4,
+                preis: 19,
+                co2: 0.3,
+                bedarf: 5.5,
+                anzahl: 20,
+                wasserbedarf: "mittel",
+                duenger: "niedrig",
+                kulturdauer: "Jan-Dez",
+                ort: "Gewächshaus, Balkon/Terasse, Freiland"
+            },
+            
+            hokkaido_kuerbis: {
+                ertrag: 2,
+                ernten: 1,
+                preis: 4,
+                co2: 0.25,
+                bedarf: 3.3,
+                anzahl: 1,
+                wasserbedarf: "mittel",
+                duenger: "hoch",
+                kulturdauer: "Apr-Okt",
+                ort: "Freiland"
+            },
+            
+            spinat: {
+                ertrag: 2,
+                ernten: 2,
+                preis: 5,
+                co2: 0.2,
+                bedarf: 4.5,
+                anzahl: 100,
+                wasserbedarf: "niedrig",
+                duenger: "niedrig",
+                kulturdauer: "Feb-Mai/Sep-Nov",
+                ort: "Gewächshaus, Balkon/Terasse, Freiland"
+            },
+            
+            brokkoli: {
+                ertrag: 1.5,
+            ernten: 2,
+                preis: 6,
+                co2: 0.4,
+                bedarf: 2.5,
+                anzahl: 8,
+                wasserbedarf: "hoch",
+                duenger: "hoch",
+                kulturdauer: "Feb-Jun/Jul-Dez",
+                ort: "Gewächshaus, Freiland"
+            },
+            
+            stangenbohne: {
+                ertrag: 3,
+                ernten: 1,
+                preis: 9.5,
+                co2: 0.3,
+                bedarf: 1.6,
+                anzahl: 12,
+                wasserbedarf: "mittel",
+                duenger: "niedrig",
+                kulturdauer: "Mai-Okt",
+                ort: "Freiland"
+            },
+            
+            zwiebel: {
+                ertrag: 4,
+                ernten: 1,
+                preis: 4,
+                co2: 0.15,
+                bedarf: 8.9,
+                anzahl: 40,
+                wasserbedarf: "mittel",
+                duenger: "mittel",
+                kulturdauer: "März-Sept",
+                ort: "Freiland, Balkon/Terasse"
+            },
+            
+            knoblauch: {
+                ertrag: 3,
+                ernten: 1,
+                preis: 30,
+                co2: 0.15,
+                bedarf: 0.7,
+                anzahl: 40,
+                wasserbedarf: "niedrig",
+                duenger: "hoch",
+                kulturdauer: "Okt-Jun",
+                ort: "Freiland, Balkon/Terasse"
+            },
+            
+            radieschen: {
+                ertrag: 3,
+                ernten: 4,
+                preis: 10,
+                co2: 0.2,
+                bedarf: 0.9,
+                anzahl: 100,
+                wasserbedarf: "niedrig",
+                duenger: "mittel",
+                kulturdauer: "Feb-Nov",
+                ort: "Gewächshaus, Balkon/Terasse, Freiland"
+            },
+            
+            snackpaprika: {
+                ertrag: 2,
+                ernten: 1,
+                preis: 10,
+                co2: 1.8,
+                bedarf: 2.2,
+                anzahl: 6,
+                wasserbedarf: "mittel",
+                duenger: "hoch",
+                kulturdauer: "Feb-Okt (kann überwintert werden)",
+                ort: "Gewächshaus, Balkon/Terasse, Freiland"
+            },
+            
+            mangold: {
+                ertrag: 2,
+                ernten: 1,
+                preis: 5,
+                co2: 0.25,
+                bedarf: 1,
+                anzahl: 8,
+                wasserbedarf: "mittel",
+                duenger: "mittel",
+                kulturdauer: "Apr-Nov",
+                ort: "Freiland, Balkon/Terasse"
+            }
+    };
+
+
+    var flaeche = parseFloat(document.getElementById("flaeche").value);
+    var kosten = parseFloat(document.getElementById("kosten").value);
+
+    var ertrag_pro_jahr = parameter[gemuese].ertrag * flaeche * parameter[gemuese].ernten;
+    var ernten_jahr = parameter[gemuese].ernten;
+    var ersparnis = parameter[gemuese].ertrag * flaeche * parameter[gemuese].ernten * parameter[gemuese].preis;
+    var amortisierung = kosten / (ertrag_pro_jahr * parameter[gemuese].preis);
+    var co2_ersparnis = parameter[gemuese].co2 * ertrag_pro_jahr;
+    var selbstversorgung = (parameter[gemuese].bedarf / parameter[gemuese].ertrag);
+    var wasserbedarf = parameter[gemuese].wasserbedarf;
+    var duenger = parameter[gemuese].duenger;
+    var kulturdauer = parameter[gemuese].kulturdauer;
+    var ort = parameter[gemuese].ort;
+
+    document.getElementById("ertrag").innerHTML = ertrag_pro_jahr.toFixed(2);
+    document.getElementById("ernten_jahr").innerHTML = ernten_jahr.toFixed(2);
+    document.getElementById("ersparnis").innerHTML = ersparnis.toFixed(2);
+    document.getElementById("amortisierung").innerHTML = amortisierung.toFixed(2);
+    document.getElementById("co2").innerHTML = co2_ersparnis.toFixed(2);
+    document.getElementById("selbstversorgung").innerHTML = selbstversorgung.toFixed(2);
+    document.getElementById("wasserbedarf").innerHTML = wasserbedarf;
+    document.getElementById("duenger").innerHTML = duenger;
+    document.getElementById("kulturdauer").innerHTML = kulturdauer;
+    document.getElementById("ort").innerHTML = ort;
+}
+</script>
+</body>
+</html>
